@@ -18,6 +18,7 @@ const Container = styled.div<Props>`
   overflow-x: hidden;
   transition-timing-function: linear;
   transition-duration: 0.5s;
+  opacity: 1;
 
   .link {
     text-decoration: none;
@@ -27,12 +28,13 @@ const Container = styled.div<Props>`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: ${(props) => (props.active ? "90%" : "0")};
+    width: ${(props) => (props.active ? "100%" : "0")};
     font-size: ${(props) => (props.active ? "22px" : "0")};
     height: 60px;
     min-height: 50px;
     border-bottom: solid 1px #dddddd;
     margin-bottom: 20px;
+    box-sizing: border-box;
   }
 
   .options {
@@ -82,7 +84,8 @@ const Container = styled.div<Props>`
     width: 100%;
     min-width: 200px;
     height: 30px;
-    margin-top: 20px;
+    position: absolute;
+    bottom: 30px;
     background: none;
     cursor: pointer;
     color: #c5c0c6;

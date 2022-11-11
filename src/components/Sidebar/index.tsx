@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FaTasks } from "react-icons/fa";
 import { FaBrain } from "react-icons/fa";
-import { HiOutlineAnnotation } from "react-icons/hi";
+import { HiOutlineAnnotation, HiOutlineShoppingBag } from "react-icons/hi";
 import { Container } from "./style";
 
 interface Props {
@@ -37,8 +37,8 @@ const Sidebar = ({ active, setActive }: Props) => {
               className={selected === 2 ? "selected" : ""}
               onClick={() => setSelected(2)}
             >
-              <FaBrain className="icons" />
-              <p>Lembretes</p>
+              <HiOutlineShoppingBag className="icons" />
+              <p>Comprar</p>
             </li>
           </Link>
 
@@ -46,6 +46,16 @@ const Sidebar = ({ active, setActive }: Props) => {
             <li
               className={selected === 3 ? "selected" : ""}
               onClick={() => setSelected(3)}
+            >
+              <FaBrain className="icons" />
+              <p>Lembretes</p>
+            </li>
+          </Link>
+
+          <Link to="/" className="link">
+            <li
+              className={selected === 4 ? "selected" : ""}
+              onClick={() => setSelected(4)}
             >
               <HiOutlineAnnotation className="icons" />
               <p>Anotações</p>

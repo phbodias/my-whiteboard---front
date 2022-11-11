@@ -1,7 +1,8 @@
 import Content from "./style";
 import { CgMenuGridO } from "react-icons/cg";
 import { IoMdSettings } from "react-icons/io";
-import { SetStateAction } from "react";
+import { SetStateAction, useState } from "react";
+import ClickAwayListener from "react-click-away-listener";
 
 interface Props {
   sidebarIsActive: boolean;
@@ -9,13 +10,23 @@ interface Props {
 }
 
 const Header = ({ sidebarIsActive, setSidebarIsActive }: Props) => {
+  const [showConfigs, setShowConfigs] = useState(false);
+
   return (
-    <Content sidebarIsActive={sidebarIsActive}>
+    <Content sidebarIsActive={sidebarIsActive} showConfigs={showConfigs}>
       <CgMenuGridO
         onClick={() => setSidebarIsActive(true)}
         className="showSidebar"
       />
-      <IoMdSettings />
+      <ClickAwayListener onClickAway={() => setShowConfigs(false)}>
+        <div>
+          <IoMdSettings onClick={() => setShowConfigs(!showConfigs)} />
+          <div className="configs">
+            <p>Configurações</p>
+            <p>Sair</p>
+          </div>
+        </div>
+      </ClickAwayListener>
     </Content>
   );
 };
