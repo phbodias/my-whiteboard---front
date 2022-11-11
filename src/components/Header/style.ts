@@ -11,8 +11,10 @@ const Content = styled.div`
   color: #837f7b;
   overflow-x: hidden;
   overflow-y: hidden;
-  transition-timing-function: linear;
-  transition-duration: 0.5s;
+
+  svg {
+    font-size: 30px;
+  }
 `;
 
 export default Content;
