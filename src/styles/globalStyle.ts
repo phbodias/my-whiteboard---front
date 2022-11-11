@@ -49,6 +49,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     cursor: zoom-in;
   }
+  svg {
+    font-size: 30px;
+    cursor: pointer;
+
+    :hover {
+      color: #34b5b8;
+    }
+  }
   
   #root{
     width: 100vw;

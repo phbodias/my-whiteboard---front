@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-const Content = styled.div`
+interface Props {
+  sidebarIsActive: boolean;
+}
+
+const Content = styled.div<Props>`
+  width: ${(props) =>
+    props.sidebarIsActive ? "calc(100vw - 235px)" : "100vw"};
   height: 60px;
   border-bottom: solid 1px #dddddd;
   display: flex;
@@ -9,11 +15,11 @@ const Content = styled.div`
   padding: 25px;
   box-sizing: border-box;
   color: #837f7b;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  transition-timing-function: linear;
+  transition-duration: 0.5s;
 
-  svg {
-    font-size: 30px;
+  .showSidebar {
+    width: ${(props) => (props.sidebarIsActive ? "0" : "30px")};
   }
 `;
 

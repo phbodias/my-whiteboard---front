@@ -1,11 +1,20 @@
 import Content from "./style";
 import { CgMenuGridO } from "react-icons/cg";
 import { IoMdSettings } from "react-icons/io";
+import { SetStateAction } from "react";
 
-const Header = () => {
+interface Props {
+  sidebarIsActive: boolean;
+  setSidebarIsActive: React.Dispatch<SetStateAction<boolean>>;
+}
+
+const Header = ({ sidebarIsActive, setSidebarIsActive }: Props) => {
   return (
-    <Content>
-      <CgMenuGridO />
+    <Content sidebarIsActive={sidebarIsActive}>
+      <CgMenuGridO
+        onClick={() => setSidebarIsActive(true)}
+        className="showSidebar"
+      />
       <IoMdSettings />
     </Content>
   );
