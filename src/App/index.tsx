@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import HomePage from "../pages/Home";
+import PurchasePage from "../pages/Purchases";
 import TasksPage from "../pages/Tasks";
 import GlobalStyle from "../styles/globalStyle";
 import { Pages } from "./style";
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/tasks" element={<TasksPage />}></Route>
+          <Route path="/purchases" element={<PurchasePage />}></Route>
         </Routes>
       </Pages>
     </BrowserRouter>

@@ -17,6 +17,7 @@ const TasksPage = () => {
       </div>
       <AddModal
         toAdd="Tarefa"
+        needDate={true}
         isOpen={addTaskModal}
         onRequestClose={() => setAddTaskModal(false)}
       />

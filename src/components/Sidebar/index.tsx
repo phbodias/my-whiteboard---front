@@ -32,7 +32,7 @@ const Sidebar = ({ active, setActive }: Props) => {
             </li>
           </Link>
 
-          <Link to="/" className="link">
+          <Link to="/purchases" className="link">
             <li
               className={selected === 2 ? "selected" : ""}
               onClick={() => setSelected(2)}
