@@ -17,6 +17,7 @@ const PurchasePage = () => {
       </div>
       <AddModal
         toAdd="item à comprar"
+        needDate={false}
         isOpen={addPurchaseModel}
         onRequestClose={() => setAddPurchaseModel(false)}
       />
