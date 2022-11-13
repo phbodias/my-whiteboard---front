@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import HomePage from "../pages/Home";
 import PurchasePage from "../pages/Purchases";
+import ReminderPage from "../pages/Reminders";
 import TasksPage from "../pages/Tasks";
 import GlobalStyle from "../styles/globalStyle";
 import { Pages } from "./style";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/tasks" element={<TasksPage />}></Route>
           <Route path="/purchases" element={<PurchasePage />}></Route>
+          <Route path="/reminders" element={<ReminderPage />}></Route>
         </Routes>
       </Pages>
     </BrowserRouter>
