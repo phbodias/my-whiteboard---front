@@ -22,7 +22,7 @@ const Sidebar = ({ active, setActive }: Props) => {
       </div>
       <div className="options">
         <ul>
-          <Link to="/" className="link">
+          <Link to="/tasks" className="link">
             <li
               className={selected === 1 ? "selected" : ""}
               onClick={() => setSelected(1)}

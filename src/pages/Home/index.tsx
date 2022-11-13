@@ -1,5 +1,7 @@
+import Content from "./style";
+
 const HomePage = () => {
-  return <></>;
+  return <Content></Content>;
 };
 
 export default HomePage;

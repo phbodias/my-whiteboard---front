@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import HomePage from "../pages/Home";
+import TasksPage from "../pages/Tasks";
 import GlobalStyle from "../styles/globalStyle";
 import { Pages } from "./style";
 
@@ -17,6 +18,7 @@ function App() {
         <Header sidebarIsActive={active} setSidebarIsActive={setActive} />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
+          <Route path="/tasks" element={<TasksPage />}></Route>
         </Routes>
       </Pages>
     </BrowserRouter>

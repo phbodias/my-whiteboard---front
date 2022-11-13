@@ -6,7 +6,6 @@ interface Props {
 
 const Container = styled.div<Props>`
   width: ${(props) => (props.active ? "235px" : "0")};
-  z-index: 1;
   position: fixed;
   left: 0;
   height: 100vh;
