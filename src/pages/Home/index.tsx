@@ -1,12 +1,7 @@
-import AddAction from "../../components/AddAction";
 import Content from "./style";
 
 const HomePage = () => {
-  return (
-    <Content>
-      <AddAction action={"Adicionar Tarefa"} />
-    </Content>
-  );
+  return <Content></Content>;
 };
 
 export default HomePage;

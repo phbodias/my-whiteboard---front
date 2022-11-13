@@ -15,13 +15,8 @@ const Button = styled.button`
   cursor: pointer;
   color: #ffffff;
 
-  svg {
-    font-size: 25px;
-    margin-right: 5px;
-  }
-
   :hover {
-    font-size: 17px;
+    text-shadow: 0 0 28px #ffffff;
   }
 `;
 
