@@ -42,7 +42,7 @@ const Sidebar = ({ active, setActive }: Props) => {
             </li>
           </Link>
 
-          <Link to="/" className="link">
+          <Link to="/reminders" className="link">
             <li
               className={selected === 3 ? "selected" : ""}
               onClick={() => setSelected(3)}
