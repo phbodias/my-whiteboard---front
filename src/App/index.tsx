@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import AnnotationsPage from "../pages/Annotations";
 import HomePage from "../pages/Home";
 import PurchasePage from "../pages/Purchases";
 import ReminderPage from "../pages/Reminders";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/tasks" element={<TasksPage />}></Route>
           <Route path="/purchases" element={<PurchasePage />}></Route>
           <Route path="/reminders" element={<ReminderPage />}></Route>
+          <Route path="/annotations" element={<AnnotationsPage />}></Route>
         </Routes>
       </Pages>
     </BrowserRouter>

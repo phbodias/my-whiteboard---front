@@ -52,7 +52,7 @@ const Sidebar = ({ active, setActive }: Props) => {
             </li>
           </Link>
 
-          <Link to="/" className="link">
+          <Link to="/annotations" className="link">
             <li
               className={selected === 4 ? "selected" : ""}
               onClick={() => setSelected(4)}
