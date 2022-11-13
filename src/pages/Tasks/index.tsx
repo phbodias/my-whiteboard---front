@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddAction from "../../components/AddAction";
-import AddModal from "../../components/Modals/addModal";
+import TasksModal from "../../components/Modals/tasksModal";
 import Content from "./style";
 
 const TasksPage = () => {
@@ -15,9 +15,7 @@ const TasksPage = () => {
       <div onClick={openModal}>
         <AddAction action={"Adicionar Tarefa"} />
       </div>
-      <AddModal
-        toAdd="Tarefa"
-        needDate={true}
+      <TasksModal
         isOpen={addTaskModal}
         onRequestClose={() => setAddTaskModal(false)}
       />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddAction from "../../components/AddAction";
-import AddModal from "../../components/Modals/addModal";
+import PurchaseModal from "../../components/Modals/purchaseModal";
 import Content from "./style";
 
 const PurchasePage = () => {
@@ -15,9 +15,7 @@ const PurchasePage = () => {
       <div onClick={openModal}>
         <AddAction action={"Para comprar"} />
       </div>
-      <AddModal
-        toAdd="item à comprar"
-        needDate={false}
+      <PurchaseModal
         isOpen={addPurchaseModel}
         onRequestClose={() => setAddPurchaseModel(false)}
       />

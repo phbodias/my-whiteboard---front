@@ -6,8 +6,6 @@ import TextareaAutosize from "react-textarea-autosize";
 import AddAction from "../../AddAction";
 
 interface Props {
-  toAdd: string;
-  needDate: boolean;
   isOpen: boolean;
   onRequestClose: React.Dispatch<SetStateAction<boolean>>;
 }
@@ -23,7 +21,7 @@ const customStyles = {
   },
 };
 
-const AddModal = ({ toAdd, isOpen, needDate, onRequestClose }: Props) => {
+const TasksModal = ({ isOpen, onRequestClose }: Props) => {
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
   let day = today.getDay().toString();
@@ -40,15 +38,14 @@ const AddModal = ({ toAdd, isOpen, needDate, onRequestClose }: Props) => {
     >
       <Content>
         <div className="top">
-          <p>Adicionar {toAdd}</p>
+          <p>Adicionar tarefa</p>
           <AiOutlineCloseCircle onClick={() => onRequestClose(false)} />
         </div>
-        {needDate && (
-          <div className="date">
-            <p>Data:</p>
-            <input type="date" min={actualDate} />
-          </div>
-        )}
+
+        <div className="date">
+          <p>Data:</p>
+          <input type="date" min={actualDate} />
+        </div>
         <div className="description">
           <p>Descrição:</p>
           <TextareaAutosize minRows={1} maxRows={12} className="textarea" />
@@ -61,4 +58,4 @@ const AddModal = ({ toAdd, isOpen, needDate, onRequestClose }: Props) => {
   );
 };
 
-export default AddModal;
+export default TasksModal;
