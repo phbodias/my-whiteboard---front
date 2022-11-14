@@ -17,8 +17,8 @@ const Container = styled.div<Props>`
   overflow-x: hidden;
   transition-timing-function: linear;
   transition-duration: 0.5s;
-  opacity: 1;
-
+  background-color: #f4f3ef;
+  
   .link {
     text-decoration: none;
   }

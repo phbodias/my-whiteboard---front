@@ -33,8 +33,6 @@ const Content = styled.div<Props>`
     font-size: ${(props) => (props.showConfigs ? "15px" : "0")};
     background-color: #615f5c;
     color: #ffffff;
-    transition-timing-function: linear;
-    transition-duration: 0.5s;
     box-sizing: border-box;
     border-radius: 9px;
     display: flex;
@@ -44,6 +42,7 @@ const Content = styled.div<Props>`
     p {
       margin: 10px 0;
       text-decoration: underline;
+      cursor: pointer;
 
       :hover {
         color: #59c3e0;
@@ -54,6 +53,10 @@ const Content = styled.div<Props>`
       display: flex;
       align-items: center;
     }
+  }
+
+  @media (max-width: 600px){
+    width: 100vw;
   }
 `;
 
