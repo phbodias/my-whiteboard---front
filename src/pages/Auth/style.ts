@@ -74,6 +74,10 @@ const Content = styled.div`
         box-sizing: border-box;
       }
 
+      .passwordInput{
+        padding-right: 30px;
+      }
+
       button {
         width: 100%;
         height: 40px;
@@ -144,7 +148,7 @@ const Content = styled.div`
     .label-float input:focus:required:invalid + label {
       color: red;
     }
-    
+
     .label-float input:focus:required:invalid {
       border: 2px solid red;
     }
@@ -158,6 +162,14 @@ const Content = styled.div`
 
     .label-float input:invalid:not(:placeholder-shown) + label {
       color: red;
+    }
+
+    .password {
+      position: absolute;
+      left: 90%;
+      margin-top: 12px;
+      margin-left: 3px;
+      font-size: 17px;
     }
   }
 `;

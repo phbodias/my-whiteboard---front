@@ -3,6 +3,7 @@ import { CgMenuGridO } from "react-icons/cg";
 import { IoMdSettings } from "react-icons/io";
 import { SetStateAction, useState } from "react";
 import ClickAwayListener from "react-click-away-listener";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   sidebarIsActive: boolean;
@@ -10,7 +11,12 @@ interface Props {
 }
 
 const Header = ({ sidebarIsActive, setSidebarIsActive }: Props) => {
+  const navigate = useNavigate();
   const [showConfigs, setShowConfigs] = useState(false);
+
+  function logout() {
+    navigate("/");
+  }
 
   return (
     <Content sidebarIsActive={sidebarIsActive} showConfigs={showConfigs}>
@@ -23,7 +29,7 @@ const Header = ({ sidebarIsActive, setSidebarIsActive }: Props) => {
           <IoMdSettings onClick={() => setShowConfigs(!showConfigs)} />
           <div className="configs">
             <p>Configurações</p>
-            <p>Sair</p>
+            <p onClick={logout}>Sair</p>
           </div>
         </div>
       </ClickAwayListener>

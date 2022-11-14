@@ -25,14 +25,14 @@ const SignInPage = () => {
             <label>email</label>
           </div>
           <div className="label-float">
-            <input type="text" placeholder=" " required />
-            <label>password</label>
+            <input type="password" placeholder=" " required />
+            <label>senha</label>
           </div>
           <button onClick={signIn}>Entrar</button>
         </form>
         <div className="register">
           <p>Primeira vez?</p>
-          <p onClick={() => navigate("/home")}>Crie sua conta</p>
+          <p onClick={() => navigate("/signup")}>Crie sua conta</p>
         </div>
       </div>
     </Content>
