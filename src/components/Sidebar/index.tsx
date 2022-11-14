@@ -63,7 +63,7 @@ const Sidebar = ({ active, setActive }: Props) => {
           </Link>
         </ul>
 
-        <Link to="/" onClick={() => setSelected(0)}>
+        <Link to="/home" onClick={() => setSelected(0)}>
           <button className="backToHome">Voltar para home</button>
         </Link>
       </div>
