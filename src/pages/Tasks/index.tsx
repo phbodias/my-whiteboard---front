@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { FaTasks } from "react-icons/fa";
 import AddAction from "../../components/AddAction";
 import TasksModal from "../../components/Modals/tasksModal";
+import PageTitle from "../../styles/PageTitles/style";
 import Content from "./style";
 
 const TasksPage = () => {
@@ -12,6 +14,12 @@ const TasksPage = () => {
 
   return (
     <Content>
+      <PageTitle>
+        <div className="title">
+          <FaTasks className="icons" />
+          <p>Tarefas</p>
+        </div>
+      </PageTitle>
       <div onClick={openModal}>
         <AddAction action={"Adicionar Tarefa"} />
       </div>

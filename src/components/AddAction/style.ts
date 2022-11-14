@@ -12,7 +12,7 @@ const Button = styled.button`
   background-color: green;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
+  cursor: cell;
   color: #ffffff;
 
   :hover {

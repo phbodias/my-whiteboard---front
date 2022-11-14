@@ -9,7 +9,7 @@ import HomePage from "../pages/Home";
 import PurchasePage from "../pages/Purchases";
 import ReminderPage from "../pages/Reminders";
 import TasksPage from "../pages/Tasks";
-import GlobalStyle from "../styles/globalStyle";
+import GlobalStyle from "../styles/Global/globalStyle";
 import { Pages } from "./style";
 
 function App() {
