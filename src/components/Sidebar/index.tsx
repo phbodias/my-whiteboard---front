@@ -16,57 +16,60 @@ const Sidebar = ({ active, setActive }: Props) => {
 
   return (
     <Container active={active}>
-      <div className="top">
-        <p>Whiteboard</p>
-        <AiOutlineCloseCircle onClick={() => setActive(false)} />
+      <div className="sidebar">
+        <div className="top">
+          <p>Whiteboard</p>
+          <AiOutlineCloseCircle onClick={() => setActive(false)} />
+        </div>
+        <div className="options">
+          <ul>
+            <Link to="/tasks" className="link">
+              <li
+                className={selected === 1 ? "selected" : ""}
+                onClick={() => setSelected(1)}
+              >
+                <FaTasks className="icons" />
+                <p>Tarefas</p>
+              </li>
+            </Link>
+
+            <Link to="/purchases" className="link">
+              <li
+                className={selected === 2 ? "selected" : ""}
+                onClick={() => setSelected(2)}
+              >
+                <HiOutlineShoppingBag className="icons" />
+                <p>Comprar</p>
+              </li>
+            </Link>
+
+            <Link to="/reminders" className="link">
+              <li
+                className={selected === 3 ? "selected" : ""}
+                onClick={() => setSelected(3)}
+              >
+                <FaBrain className="icons" />
+                <p>Lembretes</p>
+              </li>
+            </Link>
+
+            <Link to="/annotations" className="link">
+              <li
+                className={selected === 4 ? "selected" : ""}
+                onClick={() => setSelected(4)}
+              >
+                <HiOutlineAnnotation className="icons" />
+                <p>Anotações</p>
+              </li>
+            </Link>
+          </ul>
+
+          <Link to="/home" onClick={() => setSelected(0)}>
+            <button className="backToHome">Voltar para home</button>
+          </Link>
+        </div>
       </div>
-      <div className="options">
-        <ul>
-          <Link to="/tasks" className="link">
-            <li
-              className={selected === 1 ? "selected" : ""}
-              onClick={() => setSelected(1)}
-            >
-              <FaTasks className="icons" />
-              <p>Tarefas</p>
-            </li>
-          </Link>
-
-          <Link to="/purchases" className="link">
-            <li
-              className={selected === 2 ? "selected" : ""}
-              onClick={() => setSelected(2)}
-            >
-              <HiOutlineShoppingBag className="icons" />
-              <p>Comprar</p>
-            </li>
-          </Link>
-
-          <Link to="/reminders" className="link">
-            <li
-              className={selected === 3 ? "selected" : ""}
-              onClick={() => setSelected(3)}
-            >
-              <FaBrain className="icons" />
-              <p>Lembretes</p>
-            </li>
-          </Link>
-
-          <Link to="/annotations" className="link">
-            <li
-              className={selected === 4 ? "selected" : ""}
-              onClick={() => setSelected(4)}
-            >
-              <HiOutlineAnnotation className="icons" />
-              <p>Anotações</p>
-            </li>
-          </Link>
-        </ul>
-
-        <Link to="/home" onClick={() => setSelected(0)}>
-          <button className="backToHome">Voltar para home</button>
-        </Link>
-      </div>
+      <div className="mask" onClick={() => setActive(false)}></div>
     </Container>
   );
 };

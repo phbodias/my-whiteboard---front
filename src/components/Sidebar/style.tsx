@@ -5,20 +5,21 @@ interface Props {
 }
 
 const Container = styled.div<Props>`
-  width: ${(props) => (props.active ? "235px" : "0")};
   position: fixed;
   left: 0;
   height: 100vh;
-  border-right: solid 1px #dddddd;
   color: #837f7b;
-  flex-direction: column;
-  align-items: center;
   box-sizing: border-box;
   overflow-x: hidden;
   transition-timing-function: linear;
   transition-duration: 0.5s;
-  background-color: #f4f3ef;
-  
+
+  .sidebar {
+    width: ${(props) => (props.active ? "235px" : "0")};
+    background-color: #f4f3ef;
+    border-right: solid 1px #dddddd;
+  }
+
   .link {
     text-decoration: none;
   }
@@ -93,6 +94,24 @@ const Container = styled.div<Props>`
     text-decoration: underline;
     :hover {
       color: #59c3e0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: ${(props) => (props.active ? "100vw" : "0")};
+    display: flex;
+
+    .mask {
+      width: ${(props) => (props.active ? "calc(100vw - 235px)" : "0")};
+      height: 100vh;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  @media (min-width: 601px) {
+    .mask {
+      display: none;
     }
   }
 `;
