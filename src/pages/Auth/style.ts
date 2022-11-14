@@ -59,6 +59,7 @@ const Content = styled.div`
 
       svg {
         font-size: 22px;
+        cursor: pointer;
       }
 
       .oauth {
