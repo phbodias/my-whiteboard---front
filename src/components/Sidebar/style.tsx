@@ -69,8 +69,6 @@ const Container = styled.div<Props>`
         border-bottom: 1px solid #615f5c;
         background-color: #615f5c;
         color: #ffffff;
-        transition-timing-function: linear;
-        transition-duration: 0.5s;
 
         .icons {
           color: #ffffff;
@@ -80,9 +78,9 @@ const Container = styled.div<Props>`
       }
     }
   }
+
   .backToHome {
-    width: 100%;
-    min-width: 200px;
+    width: 235px;
     height: 30px;
     position: absolute;
     bottom: 30px;

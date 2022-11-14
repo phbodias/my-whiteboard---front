@@ -14,6 +14,11 @@ interface Props {
 const Sidebar = ({ active, setActive }: Props) => {
   const [selected, setSelected] = useState(0);
 
+  function backToHome() {
+    setActive(false);
+    setSelected(0);
+  }
+
   return (
     <Container active={active}>
       <div className="sidebar">
@@ -23,7 +28,7 @@ const Sidebar = ({ active, setActive }: Props) => {
         </div>
         <div className="options">
           <ul>
-            <Link to="/tasks" className="link">
+            <Link to="/tasks" className="link" onClick={() => setActive(false)}>
               <li
                 className={selected === 1 ? "selected" : ""}
                 onClick={() => setSelected(1)}
@@ -33,7 +38,11 @@ const Sidebar = ({ active, setActive }: Props) => {
               </li>
             </Link>
 
-            <Link to="/purchases" className="link">
+            <Link
+              to="/purchases"
+              className="link"
+              onClick={() => setActive(false)}
+            >
               <li
                 className={selected === 2 ? "selected" : ""}
                 onClick={() => setSelected(2)}
@@ -43,7 +52,11 @@ const Sidebar = ({ active, setActive }: Props) => {
               </li>
             </Link>
 
-            <Link to="/reminders" className="link">
+            <Link
+              to="/reminders"
+              className="link"
+              onClick={() => setActive(false)}
+            >
               <li
                 className={selected === 3 ? "selected" : ""}
                 onClick={() => setSelected(3)}
@@ -53,7 +66,11 @@ const Sidebar = ({ active, setActive }: Props) => {
               </li>
             </Link>
 
-            <Link to="/annotations" className="link">
+            <Link
+              to="/annotations"
+              className="link"
+              onClick={() => setActive(false)}
+            >
               <li
                 className={selected === 4 ? "selected" : ""}
                 onClick={() => setSelected(4)}
@@ -64,7 +81,7 @@ const Sidebar = ({ active, setActive }: Props) => {
             </Link>
           </ul>
 
-          <Link to="/home" onClick={() => setSelected(0)}>
+          <Link to="/home" onClick={backToHome}>
             <button className="backToHome">Voltar para home</button>
           </Link>
         </div>
