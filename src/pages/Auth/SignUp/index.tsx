@@ -1,20 +1,21 @@
 import { useNavigate } from "react-router-dom";
-import { ThreeDots } from "react-loader-spinner";
 import { Content } from "../style";
+import { ThreeDots } from "react-loader-spinner";
 import {
   AiFillFacebook,
   AiOutlineGoogle,
   AiOutlineEye,
   AiOutlineEyeInvisible,
 } from "react-icons/ai";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const SignInPage = () => {
+const SignUpPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
 
   const [data, setData] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -26,20 +27,34 @@ const SignInPage = () => {
   async function handleRegister(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    navigate("/home");
+    navigate("/");
   }
 
   return (
     <Content>
       <div className="container">
         <div className="auth">
-          <p>Faça seu login</p>
+          <p>Faça seu cadastro</p>
           <div className="oauth">
             <AiFillFacebook />
             <AiOutlineGoogle />
           </div>
         </div>
         <form onSubmit={handleRegister}>
+          <div className="label-float">
+            <input
+              type="text"
+              name="name"
+              minLength={2}
+              maxLength={30}
+              placeholder=" "
+              disabled={loading}
+              required
+              value={data.name}
+              onChange={handleInputChange}
+            />
+            <label>nome</label>
+          </div>
           <div className="label-float">
             <input
               type="email"
@@ -86,19 +101,19 @@ const SignInPage = () => {
           </div>
           <button type="submit">
             {loading ? (
-              <ThreeDots color="#FFF" height={30} width={"100%"} radius="10px" />
+              <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
-              <p>Entrar</p>
+              <p>Cadastrar</p>
             )}
           </button>
         </form>
         <div className="register">
-          <p>Primeira vez?</p>
-          <p onClick={() => navigate("/signup")}>Crie sua conta</p>
+          <p>Já possui uma conta?</p>
+          <p onClick={() => navigate("/")}>Faça login</p>
         </div>
       </div>
     </Content>
   );
 };
 
-export default SignInPage;
+export default SignUpPage;

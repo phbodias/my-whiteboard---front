@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import AnnotationsPage from "../pages/Annotations";
 import SignInPage from "../pages/Auth/SignIn";
+import SignUpPage from "../pages/Auth/SignUp";
 import HomePage from "../pages/Home";
 import PurchasePage from "../pages/Purchases";
 import ReminderPage from "../pages/Reminders";
@@ -22,6 +23,7 @@ function App() {
         <Header sidebarIsActive={active} setSidebarIsActive={setActive} />
         <Routes>
           <Route path="/" element={<SignInPage />}></Route>
+          <Route path="/signup" element={<SignUpPage />}></Route>
           <Route path="/home" element={<HomePage />}></Route>
           <Route path="/tasks" element={<TasksPage />}></Route>
           <Route path="/purchases" element={<PurchasePage />}></Route>

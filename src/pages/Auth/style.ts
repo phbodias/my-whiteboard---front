@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import background from "../../images/authBackground/background.png";
 
 const Content = styled.div`
   position: absolute;
@@ -9,7 +10,12 @@ const Content = styled.div`
   background-color: #f4f3ef;
   display: flex;
   align-items: center;
-  justify-content: center;
+  background-image: url(${background});
+  background-repeat: no-repeat;
+  background-position: 15% 30%;
+  background-size: 40vw;
+  padding-right: 10%;
+  box-sizing: border-box;
 
   .container {
     display: flex;
@@ -24,6 +30,8 @@ const Content = styled.div`
     height: 90vh;
     min-height: 300px;
     border-radius: 15px;
+    position: relative;
+    right: -60%;
 
     .auth {
       background: rgb(53, 142, 237);
@@ -74,6 +82,10 @@ const Content = styled.div`
         box-sizing: border-box;
       }
 
+      .passwordInput {
+        padding-right: 30px;
+      }
+
       button {
         width: 100%;
         height: 40px;
@@ -96,6 +108,7 @@ const Content = styled.div`
     .register {
       display: flex;
       margin-top: 50px;
+      color: lightgrey;
 
       p:nth-child(2) {
         color: #358fed;
@@ -144,7 +157,7 @@ const Content = styled.div`
     .label-float input:focus:required:invalid + label {
       color: red;
     }
-    
+
     .label-float input:focus:required:invalid {
       border: 2px solid red;
     }
@@ -158,6 +171,29 @@ const Content = styled.div`
 
     .label-float input:invalid:not(:placeholder-shown) + label {
       color: red;
+    }
+
+    .password {
+      position: absolute;
+      left: 90%;
+      margin-top: 12px;
+      margin-left: 3px;
+      font-size: 17px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    justify-content: center;
+    background-position: center 10%;
+    background-size: 300px;
+    padding: 0;
+
+    .container {
+      position: relative;
+      top: 20%;
+      left: auto;
+      right: auto;
+      margin-top: 120px;
     }
   }
 `;
