@@ -27,8 +27,8 @@ const Content = styled.div`
     width: 40vw;
     min-width: 300px;
     max-width: 350px;
-    height: 90vh;
-    min-height: 300px;
+    height: fit-content;
+    min-height: 400px;
     border-radius: 15px;
     position: relative;
     right: -60%;
@@ -105,9 +105,10 @@ const Content = styled.div`
       }
     }
 
-    .register {
+    .redirect {
       display: flex;
       margin-top: 50px;
+      margin-bottom: 15px;
       color: lightgrey;
 
       p:nth-child(2) {
@@ -184,16 +185,16 @@ const Content = styled.div`
 
   @media (max-width: 600px) {
     justify-content: center;
-    background-position: center 10%;
+    background-position: center 30px;
     background-size: 300px;
     padding: 0;
 
     .container {
       position: relative;
-      top: 20%;
+      top: 90px;
       left: auto;
       right: auto;
-      margin-top: 120px;
+      margin-bottom: 80px;
     }
   }
 `;

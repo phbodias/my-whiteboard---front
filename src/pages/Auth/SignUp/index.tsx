@@ -107,7 +107,7 @@ const SignUpPage = () => {
             )}
           </button>
         </form>
-        <div className="register">
+        <div className="redirect">
           <p>Já possui uma conta?</p>
           <p onClick={() => navigate("/")}>Faça login</p>
         </div>
