@@ -45,6 +45,8 @@ const SignUpPage = () => {
             <input
               type="text"
               name="name"
+              minLength={2}
+              maxLength={30}
               placeholder=" "
               disabled={loading}
               required
@@ -69,6 +71,8 @@ const SignUpPage = () => {
             <input
               type={showPass ? "text" : "password"}
               name="password"
+              minLength={6}
+              maxLength={30}
               placeholder=" "
               className="passwordInput"
               disabled={loading}
