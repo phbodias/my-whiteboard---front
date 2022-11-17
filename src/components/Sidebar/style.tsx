@@ -18,6 +18,8 @@ const Container = styled.div<Props>`
     width: ${(props) => (props.active ? "235px" : "0")};
     background-color: #f4f3ef;
     border-right: solid 1px #dddddd;
+    transition-timing-function: linear;
+    transition-duration: 0.5s;
   }
 
   .link {
