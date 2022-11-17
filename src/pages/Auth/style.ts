@@ -26,7 +26,7 @@ const Content = styled.div`
     -webkit-backdrop-filter: blur(13.5px);
     width: 40vw;
     min-width: 300px;
-    max-width: 350px;
+    max-width: 400px;
     height: fit-content;
     min-height: 400px;
     border-radius: 15px;
@@ -188,7 +188,7 @@ const Content = styled.div`
     justify-content: center;
     background-position: center 30px;
     background-size: 300px;
-    padding: 0;
+    padding: 0 0;
 
     .container {
       position: relative;
@@ -196,6 +196,7 @@ const Content = styled.div`
       left: auto;
       right: auto;
       margin-bottom: 80px;
+      width: 100%;
     }
   }
 `;
