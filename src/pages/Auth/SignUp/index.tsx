@@ -1,10 +1,11 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Content } from "../style";
 import { ThreeDots } from "react-loader-spinner";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { Content } from "../style";
 import { signUp } from "../../../services/signup";
 
 const SignUpPage = () => {
@@ -44,8 +45,7 @@ const SignUpPage = () => {
         toast.success("Inscrito com sucesso! Por favor, faça login.");
         navigate("/sign-in");
       } catch (error: any) {
-        toast.error(`Não foi possível cadastrar: \n${error.message}`);
-        setData({ ...data, confirmPassword: "" });
+        toast.error(`Não foi possível cadastrar: \n${error.response.data}`);
         setLoading(false);
       }
     }
@@ -147,7 +147,12 @@ const SignUpPage = () => {
           </div>
           <button type="submit" disabled={loading}>
             {loading ? (
-              <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
+              <ThreeDots
+                color="#FFF"
+                height={30}
+                width={"100%"}
+                radius="10px"
+              />
             ) : (
               <p>Cadastrar</p>
             )}
