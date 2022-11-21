@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Content } from "../style";
 import { ThreeDots } from "react-loader-spinner";
 import {
@@ -13,25 +15,36 @@ const SignUpPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
 
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  async function handleRegister(e: React.FormEvent<HTMLFormElement>) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    navigate("/");
+
+    if (data.password !== data.confirmPassword) {
+      toast.warning("As senhas devem ser iguais!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setLoading(false);
+    } else {
+      navigate("/");
+    }
   }
 
   return (
     <Content>
+      <ToastContainer />
       <div className="container">
         <div className="auth">
           <p>Faça seu cadastro</p>
@@ -40,7 +53,7 @@ const SignUpPage = () => {
             <AiOutlineGoogle />
           </div>
         </div>
-        <form onSubmit={handleRegister}>
+        <form onSubmit={submit}>
           <div className="label-float">
             <input
               type="text"
@@ -83,8 +96,9 @@ const SignUpPage = () => {
             <label>
               <p>senha</p>
             </label>
-            {data.password.length > 0 && !loading ? (
-              showPass ? (
+            {data.password.length > 0 &&
+              !loading &&
+              (showPass ? (
                 <AiOutlineEyeInvisible
                   onClick={() => setShowPass(!showPass)}
                   className="password"
@@ -94,10 +108,37 @@ const SignUpPage = () => {
                   onClick={() => setShowPass(!showPass)}
                   className="password"
                 />
-              )
-            ) : (
-              ""
-            )}
+              ))}
+          </div>
+          <div className="label-float">
+            <input
+              type={showConfirmPass ? "text" : "password"}
+              name="confirmPassword"
+              minLength={6}
+              maxLength={30}
+              placeholder=" "
+              className="passwordInput"
+              disabled={loading}
+              value={data.confirmPassword}
+              onChange={handleInputChange}
+              required
+            />
+            <label>
+              <p>confirme a senha</p>
+            </label>
+            {data.confirmPassword.length > 0 &&
+              !loading &&
+              (showConfirmPass ? (
+                <AiOutlineEyeInvisible
+                  onClick={() => setShowConfirmPass(!showConfirmPass)}
+                  className="password"
+                />
+              ) : (
+                <AiOutlineEye
+                  onClick={() => setShowConfirmPass(!showConfirmPass)}
+                  className="password"
+                />
+              ))}
           </div>
           <button type="submit">
             {loading ? (
