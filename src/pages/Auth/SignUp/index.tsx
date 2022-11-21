@@ -1,46 +1,64 @@
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Content } from "../style";
 import { ThreeDots } from "react-loader-spinner";
-import {
-  AiFillFacebook,
-  AiOutlineGoogle,
-  AiOutlineEye,
-  AiOutlineEyeInvisible,
-} from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import React, { useState } from "react";
+import { signUp } from "../../../services/signup";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
 
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  async function handleRegister(e: React.FormEvent<HTMLFormElement>) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    navigate("/");
+
+    if (data.password !== data.confirmPassword) {
+      toast.warning("As senhas devem ser iguais!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setData({ ...data, confirmPassword: "" });
+      setLoading(false);
+    } else {
+      try {
+        await signUp({
+          name: data.name,
+          email: data.email,
+          password: data.password,
+        });
+        toast.success("Inscrito com sucesso! Por favor, faça login.");
+        navigate("/sign-in");
+      } catch (error: any) {
+        toast.error(`Não foi possível cadastrar: \n${error.message}`);
+        setData({ ...data, confirmPassword: "" });
+        setLoading(false);
+      }
+    }
   }
 
   return (
     <Content>
+      <ToastContainer />
       <div className="container">
         <div className="auth">
           <p>Faça seu cadastro</p>
-          <div className="oauth">
-            <AiFillFacebook />
-            <AiOutlineGoogle />
-          </div>
         </div>
-        <form onSubmit={handleRegister}>
+        <form onSubmit={submit}>
           <div className="label-float">
             <input
               type="text"
@@ -83,8 +101,9 @@ const SignUpPage = () => {
             <label>
               <p>senha</p>
             </label>
-            {data.password.length > 0 && !loading ? (
-              showPass ? (
+            {data.password.length > 0 &&
+              !loading &&
+              (showPass ? (
                 <AiOutlineEyeInvisible
                   onClick={() => setShowPass(!showPass)}
                   className="password"
@@ -94,12 +113,39 @@ const SignUpPage = () => {
                   onClick={() => setShowPass(!showPass)}
                   className="password"
                 />
-              )
-            ) : (
-              ""
-            )}
+              ))}
           </div>
-          <button type="submit">
+          <div className="label-float">
+            <input
+              type={showConfirmPass ? "text" : "password"}
+              name="confirmPassword"
+              minLength={6}
+              maxLength={30}
+              placeholder=" "
+              className="passwordInput"
+              disabled={loading}
+              value={data.confirmPassword}
+              onChange={handleInputChange}
+              required
+            />
+            <label>
+              <p>confirme a senha</p>
+            </label>
+            {data.confirmPassword.length > 0 &&
+              !loading &&
+              (showConfirmPass ? (
+                <AiOutlineEyeInvisible
+                  onClick={() => setShowConfirmPass(!showConfirmPass)}
+                  className="password"
+                />
+              ) : (
+                <AiOutlineEye
+                  onClick={() => setShowConfirmPass(!showConfirmPass)}
+                  className="password"
+                />
+              ))}
+          </div>
+          <button type="submit" disabled={loading}>
             {loading ? (
               <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
