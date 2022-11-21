@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import { Content } from "../style";
 import {
-  AiFillFacebook,
-  AiOutlineGoogle,
   AiOutlineEye,
   AiOutlineEyeInvisible,
 } from "react-icons/ai";
@@ -34,10 +32,6 @@ const SignInPage = () => {
       <div className="container">
         <div className="auth">
           <p>Faça seu login</p>
-          <div className="oauth">
-            <AiFillFacebook />
-            <AiOutlineGoogle />
-          </div>
         </div>
         <form onSubmit={handleRegister}>
           <div className="label-float">

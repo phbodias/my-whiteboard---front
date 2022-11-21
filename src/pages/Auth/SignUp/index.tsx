@@ -3,13 +3,9 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Content } from "../style";
 import { ThreeDots } from "react-loader-spinner";
-import {
-  AiFillFacebook,
-  AiOutlineGoogle,
-  AiOutlineEye,
-  AiOutlineEyeInvisible,
-} from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import React, { useState } from "react";
+import { signUp } from "../../../services/signup";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -36,9 +32,22 @@ const SignUpPage = () => {
       toast.warning("As senhas devem ser iguais!", {
         position: toast.POSITION.TOP_RIGHT,
       });
+      setData({ ...data, confirmPassword: "" });
       setLoading(false);
     } else {
-      navigate("/");
+      try {
+        await signUp({
+          name: data.name,
+          email: data.email,
+          password: data.password,
+        });
+        toast.success("Inscrito com sucesso! Por favor, faça login.");
+        navigate("/sign-in");
+      } catch (error: any) {
+        toast.error(`Não foi possível cadastrar: \n${error.message}`);
+        setData({ ...data, confirmPassword: "" });
+        setLoading(false);
+      }
     }
   }
 
@@ -48,10 +57,6 @@ const SignUpPage = () => {
       <div className="container">
         <div className="auth">
           <p>Faça seu cadastro</p>
-          <div className="oauth">
-            <AiFillFacebook />
-            <AiOutlineGoogle />
-          </div>
         </div>
         <form onSubmit={submit}>
           <div className="label-float">
@@ -140,7 +145,7 @@ const SignUpPage = () => {
                 />
               ))}
           </div>
-          <button type="submit">
+          <button type="submit" disabled={loading}>
             {loading ? (
               <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
