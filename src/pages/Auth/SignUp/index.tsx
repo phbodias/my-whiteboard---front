@@ -45,7 +45,6 @@ const SignUpPage = () => {
         navigate("/sign-in");
       } catch (error: any) {
         toast.error(`Não foi possível cadastrar: \n${error.message}`);
-        setData({ ...data, confirmPassword: "" });
         setLoading(false);
       }
     }
@@ -147,7 +146,7 @@ const SignUpPage = () => {
           </div>
           <button type="submit" disabled={loading}>
             {loading ? (
-              <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
+              <ThreeDots color="#FFF" height={30} width={"100%"} radius="10px" />
             ) : (
               <p>Cadastrar</p>
             )}

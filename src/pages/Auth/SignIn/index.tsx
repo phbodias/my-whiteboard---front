@@ -62,8 +62,9 @@ const SignInPage = () => {
             <label>
               <p>senha</p>
             </label>
-            {data.password.length > 0 && !loading ? (
-              showPass ? (
+            {data.password.length > 0 &&
+              !loading &&
+              (showPass ? (
                 <AiOutlineEyeInvisible
                   onClick={() => setShowPass(!showPass)}
                   className="password"
@@ -73,10 +74,7 @@ const SignInPage = () => {
                   onClick={() => setShowPass(!showPass)}
                   className="password"
                 />
-              )
-            ) : (
-              ""
-            )}
+              ))}
           </div>
           <button type="submit">
             {loading ? (
